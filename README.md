@@ -1,3 +1,5 @@
+yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
