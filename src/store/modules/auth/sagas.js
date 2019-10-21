@@ -22,6 +22,8 @@ export function* singIn({ payload }) {
 
     yield put(singInSuccess(token, user));
 
+    api.defaults.headers.Authorization = `Beare ${token}`;
+
     history.push('/dashboard');
   } catch (err) {
     toast.error('Falha na autenticação, verifique seus dados.');
@@ -47,7 +49,21 @@ export function* singUp({ payload }) {
   }
 }
 
+/**
+ * Setando TOKEN para todas as requisições
+ */
+export function setToken({ payload }) {
+  if (!payload) return;
+
+  const { token } = payload.auth;
+
+  if (token) {
+    api.defaults.headers.Authorization = `Beare ${token}`;
+  }
+}
+
 export default all([
   takeLatest('@auth/SING_IN_REQUEST', singIn),
   takeLatest('@auth/SING_UP_REQUEST', singUp),
+  takeLatest('persist/REHYDRATE', setToken),
 ]);
