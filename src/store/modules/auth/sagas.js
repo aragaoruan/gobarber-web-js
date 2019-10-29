@@ -62,8 +62,14 @@ export function setToken({ payload }) {
   }
 }
 
+export function singOut() {
+  console.tron.error('OI');
+  history.push('/');
+}
+
 export default all([
+  takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SING_IN_REQUEST', singIn),
   takeLatest('@auth/SING_UP_REQUEST', singUp),
-  takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('@auth/SING_OUT', singOut),
 ]);
