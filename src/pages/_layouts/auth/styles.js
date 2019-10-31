@@ -36,7 +36,7 @@ export const Content = styled.div`
     span {
       color: #fb6f91;
       align-self: flex-start;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
       font-weight: bold;
     }
 
@@ -55,16 +55,16 @@ export const Content = styled.div`
         background: ${darken(0.03, '#3b9eff')};
       }
     }
-  }
 
-  a {
-    color: #fff;
-    margin-top: 15px;
-    font-size: 16px;
-    opacity: 0.8;
+    a {
+      color: #fff;
+      margin-top: 15px;
+      font-size: 16px;
+      opacity: 0.8;
 
-    &:hover {
-      opacity: 1;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 `;
